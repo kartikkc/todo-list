@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(__dirname+"public"));
 
 const currentDay = new Date();
 const options = {
@@ -48,6 +48,6 @@ app.get("/about", (req, res) => {
     title="Work List"
     res.render('about', { date: title, newListItems: workItems });
 })
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("[Status] The server is running on port 3000");
 })
