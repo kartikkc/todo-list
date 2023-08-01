@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const ejs = require("ejs");
 const app = express();
 app.set("view engine", "ejs");
+// app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,3 +52,4 @@ app.get("/about", (req, res) => {
 app.listen(process.env.PORT || 3000, () => {
     console.log("[Status] The server is running on port 3000");
 })
+
