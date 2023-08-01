@@ -1,0 +1,53 @@
+<%- include("header") -%>
+    <!-- <section class="vh-100 gradient-custom"> -->
+        <div class="container py-5 h-100">
+            <div class="d-flex justify-content-center p-5">
+                <h1 class="mt-5">
+                    <%= date%>
+                </h1>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="col col-xl-10">
+
+                    <div class="card">
+                        <div class="card-body p-5">
+
+                            <form class="d-flex justify-content-center align-items-center mb-4" action="/"
+                                method="POST">
+                                <div class="form-outline flex-fill">
+                                    <label class="form-label" for="form2">New task</label>
+                                    <input type="text" id="form2" name="task" class="form-control" name="listItem"
+                                        placeholder="Enter Here..." />
+                                </div>
+                                <button type="submit" name="button" class="btn btn-info ms-2 mt-4" value=<%=date %>
+                                    >Add</button>
+                            </form>
+
+                            <!-- Tabs content -->
+                            <div class="tab-content" id="ex1-content">
+                                <% for (var i=0; i < newListItems.length ; i++) { %>
+                                    <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel"
+                                        aria-labelledby="ex1-tab-1">
+                                        <ul class="list-group mb-0">
+                                            <li class="list-group-item d-flex align-items-center border-0 mb-0"
+                                                style="background-color: #f4f6f7;">
+                                                <input class="form-check-input me-2" type="checkbox" value="" />
+                                                <p class="d-flex mb-1">
+                                                    <%= newListItems[i] %>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <% } %>
+                            </div>
+
+                            <!-- Tabs content -->
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+<%- include("footer") -%>
