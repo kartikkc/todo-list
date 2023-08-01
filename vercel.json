@@ -14,7 +14,7 @@
       {
         "src": "/(.*)",
         "dest": "index.js"
-      }
+      },
       {
         "src": "/views(.*)",
         "dest": "/views/.$1"
