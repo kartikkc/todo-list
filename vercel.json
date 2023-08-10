@@ -1,24 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.js",
-        "use": "@now/node"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/public/(.*)",
-        "dest": "/public/$1" 
-      },
-      {
-        "src": "/(.*)",
-        "dest": "index.js"
-      },
-      {
-        "src": "/views(.*)",
-        "dest": "/views/.$1"
-      }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "index.js"
+    },
+    {
+      "src": "/views(.*)",
+      "dest": "/views/.$1"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "mongodb+srv://kartikkc397:Jaydensh5@cluster0.gwwyia0.mongodb.net/todoListDB"
   }
-  
+}
