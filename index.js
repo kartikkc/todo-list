@@ -7,7 +7,7 @@ const _ = require("lodash");
 // Setting the preferences 
 
 const app = express();
-app.set("view engine", "ejs");  
+app.set("view engine", "ejs");
 // app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialise the connection to the database
 const mongoDBConnectionString = process.env.MONGODB_URI;
-mongoose.connect(mongoDBConnectionString);   
+mongoose.connect(mongoDBConnectionString).catch((error) => { console.error(error) });
+// mongoose.connect("mongodb+srv://vercel-admin-user-64d65e4e877fad3dcc5a0752:inGKMeLOgRMM1zQI@cluster0.gwwyia0.mongodb.net/todoListDB").catch((error)=>{console.error(error)});
 
 // Creating the schema and model 
 
@@ -76,7 +77,7 @@ app.get("/", (req, res) => {
         .catch(error => {
             console.error("The error shown is: ", error)
         });
-})
+});
 
 
 app.post("/", (req, res) => {
@@ -147,9 +148,9 @@ app.get("/:title", (req, res) => {
 
 app.get("/about", (req, res) => {
     res.render('about');
-})
+});
 app.listen(process.env.PORT || 3000, () => {
     console.log("[Status] The server is running on port 3000");
-})
+});
 
 // Vercel changes
