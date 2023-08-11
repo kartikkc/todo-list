@@ -7,14 +7,14 @@ const _ = require("lodash");
 // Setting the preferences 
 
 const app = express();
-app.set("view engine", "ejs");
+app.set("view engine", "ejs");  
 // app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialise the connection to the database
-const mongoDBConnectionString = process.env.MONGODB_CONNECTION_STRING;
+const mongoDBConnectionString = process.env.MONGODB_URI;
 mongoose.connect(mongoDBConnectionString);   
 
 // Creating the schema and model 

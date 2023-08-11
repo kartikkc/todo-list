@@ -21,6 +21,6 @@
     }
   ],
   "env": {
-    "MONGODB_URI": "mongodb+srv://kartikkc397:Jaydensh5@cluster0.gwwyia0.mongodb.net/todoListDB"
+    "MONGODB_URI": "mongodb+srv://vercel-admin-user-64d65e4e877fad3dcc5a0752:inGKMeLOgRMM1zQI@cluster0.gwwyia0.mongodb.net/todoListDB"
   }
 }
