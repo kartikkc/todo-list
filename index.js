@@ -14,7 +14,8 @@ app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialise the connection to the database
-mongoose.connect("mongodb+srv://kartikkc397:Jaydensh5@cluster0.gwwyia0.mongodb.net/todoListDB");
+const mongoDBConnectionString = process.env.MONGODB_URL;
+mongoose.connect(mongoDBConnectionString);
 
 // Creating the schema and model 
 
