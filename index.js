@@ -8,14 +8,19 @@ const _ = require("lodash");
 
 const app = express();
 app.set("view engine", "ejs");
-// app.use(express.static("public"));
 app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialise the connection to the database
 const mongoDBConnectionString = process.env.MONGODB_URI;
-mongoose.connect(mongoDBConnectionString).catch((error) => { console.error(error) });
+mongoose.connect(mongoDBConnectionString, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log("Connected to MongoDB Atlas");
+    })
+    .catch(error => {
+        console.error("MongoDB Connection Error:", error);
+    });
 // mongoose.connect("mongodb+srv://vercel-admin-user-64d65e4e877fad3dcc5a0752:inGKMeLOgRMM1zQI@cluster0.gwwyia0.mongodb.net/todoListDB").catch((error)=>{console.error(error)});
 
 // Creating the schema and model 
