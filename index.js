@@ -70,7 +70,8 @@ app.get("/", (req, res) => {
             if (Inputs == 0) {
                 Input.insertMany(defautltItems).then(console.log("Tasks Added Sucessfully!!"))
                     .catch(error => {
-                        console.error("The error occured is : ", error);
+                        console.error("Error fetching inputs:", error);
+                        res.status(500).send("Internal Server Error");
                     });
             }
             else {
