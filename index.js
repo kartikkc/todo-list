@@ -14,8 +14,8 @@ app.set("views", __dirname + "/views");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialise the connection to the database
-const mongoDBConnectionString = process.env.MONGODB_URL;
-mongoose.connect(mongoDBConnectionString);
+const mongoDBConnectionString = process.env.MONGODB_CONNECTION_STRING;F
+mongoose.connect(mongoDBConnectionString);   
 
 // Creating the schema and model 
 
