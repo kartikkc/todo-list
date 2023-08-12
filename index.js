@@ -127,6 +127,9 @@ app.post("/delete", (req, res) => {
             .then(res.redirect("/" + listName)).catch((error) => { console.error("The error is: ", error) });
     }
 });
+app.get("/about", (req, res) => {
+    res.render('about');
+});
 
 app.get("/:title", (req, res) => {
     const title = _.capitalize(req.params.title);
@@ -152,9 +155,6 @@ app.get("/:title", (req, res) => {
         });
 });
 
-app.get("/about", (req, res) => {
-    res.render('about');
-});
 app.listen(process.env.PORT || 3000, () => {
     console.log("[Status] The server is running on port 3000");
 });
